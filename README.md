@@ -1,16 +1,130 @@
-# React + Vite
+# 📝 Todo App with Local Storage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and clean **Todo Application** built using **React**, **Vite**, and **Tailwind CSS**. This app allows users to add, update, delete, and mark todos as complete, with data persisted using **Local Storage** so your todos remain saved even after refreshing the page.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+👉 [Click here to use the app](https://todo-local-react.vercel.app/)
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧰 Features
 
-## Expanding the ESLint configuration
+* ➕ Add new todos
+* ✏️ Edit existing todos
+* ❌ Delete todos
+* ✅ Mark todos as completed / uncompleted
+* 💾 Persistent storage using **localStorage**
+* 🎨 Responsive & minimal UI with Tailwind CSS
+* ⚡ Fast performance with Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+* **React** (useState, useEffect, Context API)
+* **Vite**
+* **Tailwind CSS**
+* **JavaScript**
+* **Local Storage**
+
+---
+
+## 🧠 Core Concepts Used
+
+* **React Hooks**: `useState`, `useEffect`
+* **Context API** for global state management
+* **Local Storage** for data persistence
+* **Component-based architecture**
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│── components/
+│   ├── TodoForm.jsx
+│   └── TodoItem.jsx
+│
+│── contexts/
+│   └── TodoContext.js
+│
+│── App.jsx
+│── main.jsx
+│── index.css
+```
+
+---
+
+## 📸 Screenshots
+
+![Todo App Screenshot](./public/image.jpeg)
+
+---
+
+## 📦 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Gitanjali23/todoLocal-react
+cd Todolocal
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 💾 How Local Storage Works
+
+* On initial load, todos are fetched from `localStorage`
+* Every change in todos updates `localStorage`
+
+```js
+useEffect(() => {
+  const todos = JSON.parse(localStorage.getItem("todos"))
+  if (todos && todos.length > 0) {
+    setTodos(todos)
+  }
+}, [])
+
+useEffect(() => {
+  localStorage.setItem("todos", JSON.stringify(todos))
+}, [todos])
+```
+
+---
+
+## 🌐 Deployment
+
+This project can be easily deployed on **Vercel**.
+
+Steps:
+
+1. Push your project to GitHub
+2. Connect your GitHub repository to Vercel
+3. Deploy (auto-deploys on every push to `main` branch)
+
+---
+
+## 👤 Author
+
+Made with 💙 by **Gitanjali Jaiswal**
+
+ [GitHub] : (https://github.com/Gitanjali23)
+
+---
+
+✨ *Feel free to fork this repo and enhance it with filters, due dates, or drag-and-drop!*
